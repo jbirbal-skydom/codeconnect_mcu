@@ -1,0 +1,5 @@
+STM32/M4/Cube/Blink/Release/
+**/Release/**
+Debug/
+Release/
+**/Debug/**

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<PROJECT IID="1" BUILDPATH="" VERSION="847" TYPE="SOURCE" NAME="STM32F401RE_1" CONFIGURATION="Debug">
+ <FILES ATTACH="1">
+  <FILE ATTACH="1" GROUP="Source Files" NAME="STM32F401RE_1/main.c"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/core/core_cm4.h"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/core/core_cmFunc.h"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/core/core_cmInstr.h"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/core/core_cmSimd.h"/>
+  <FILE ATTACH="1" GROUP="Source Files" NAME="STM32F401RE_1/cmsis/device/startup_stm32f401xx.s"/>
+  <FILE ATTACH="1" GROUP="Source Files" NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.c"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/device/stm32f4xx.h"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/device/stm32f4xx_it.h"/>
+  <FILE ATTACH="1" GROUP="Header Files" NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.h"/>
+  <FILE ATTACH="1" GROUP="Linker Script Files" NAME="STM32F401RE_1/STM32F401XE.ld"/>
+  <FILE ATTACH="1" GROUP="Firmware Files" NAME="STM32F401RE_1/Debug/Debug.elf" FIRMWARE="1"/>
+ </FILES>
+ <CONFIGURATION CRC="f72c6a8e4dadf3e14aeddf93751a141e" TARGET="Debug" COMPILER="GCC for ARM" NAME="Debug">
+  <CONTROLLER FAMILY="Cortex-M4" TYPE="STM32F401RE"/>
+  <FILE TOOL="LD" NAME="STM32F401RE_1/Debug/Debug.elf">
+   <FILE TOOL="CC" NAME="STM32F401RE_1/Debug/main.o">
+    <FILE NAME="STM32F401RE_1/main.c"/>
+   </FILE>
+   <FILE TOOL="ASM" NAME="STM32F401RE_1/Debug/STARTU~1.o">
+    <FILE NAME="STM32F401RE_1/cmsis/device/startup_stm32f401xx.s"/>
+   </FILE>
+   <FILE TOOL="CC" NAME="STM32F401RE_1/Debug/SYSTEM~1.o">
+    <FILE NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.c"/>
+   </FILE>
+   <FILE NAME="STM32F401RE_1/STM32F401XE.ld"/>
+  </FILE>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cm4.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmFunc.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmInstr.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmSimd.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/stm32f4xx.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/stm32f4xx_it.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.h"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-mthumb"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-nostartfiles"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-nostdlib"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-g" VALUE="dwarf-2"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fomit-frame-pointer"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-W" VALUE="all"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fverbose-asm"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-MD"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-MP"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fsigned-char"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-O" VALUE="0"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mfloat-abi=" VALUE="hard"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mfpu=" VALUE="fpv4-sp-d16"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mthumb"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-I" VALUE="%PROJECT_DIR%/cmsis/core"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-I" VALUE="%PROJECT_DIR%/cmsis/device"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-D" VALUE="__STATIC_INLINE=__INLINE"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-D" VALUE="STM32F401xx"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-x " VALUE="assembler-with-cpp"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-g" VALUE="dwarf-2"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mfloat-abi=" VALUE="hard"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mfpu=" VALUE="fpv4-sp-d16"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mthumb"/>
+ </CONFIGURATION>
+ <CONFIGURATION CRC="f72c6a8e4dadf3e14aeddf93751a141e" TARGET="Release" COMPILER="GCC for ARM" NAME="Release">
+  <CONTROLLER FAMILY="Cortex-M4" TYPE="STM32F401RE"/>
+  <FILE TOOL="BIN2HEX">
+   <FILE TOOL="LD">
+    <FILE TOOL="CC">
+     <FILE NAME="STM32F401RE_1/main.c"/>
+    </FILE>
+    <FILE TOOL="ASM">
+     <FILE NAME="STM32F401RE_1/cmsis/device/startup_stm32f401xx.s"/>
+    </FILE>
+    <FILE TOOL="CC">
+     <FILE NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.c"/>
+    </FILE>
+    <FILE NAME="STM32F401RE_1/STM32F401XE.ld"/>
+   </FILE>
+  </FILE>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cm4.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmFunc.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmInstr.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/core/core_cmSimd.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/stm32f4xx.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/stm32f4xx_it.h"/>
+  <FILE NAME="STM32F401RE_1/cmsis/device/system_stm32f4xx.h"/>
+  <OPTION DEFAULT="1" TOOL="BIN2HEX" NAME="-O " VALUE="ihex"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-mthumb"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-nostartfiles"/>
+  <OPTION DEFAULT="1" TOOL="LD" NAME="-nostdlib"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-g" VALUE="dwarf-2"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fomit-frame-pointer"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-W" VALUE="all"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fverbose-asm"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-MD"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-MP"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-fsigned-char"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-O" VALUE="s"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mfloat-abi=" VALUE="hard"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mfpu=" VALUE="fpv4-sp-d16"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-mthumb"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-I" VALUE="%PROJECT_DIR%/cmsis/core"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-I" VALUE="%PROJECT_DIR%/cmsis/device"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-D" VALUE="__STATIC_INLINE=__INLINE"/>
+  <OPTION DEFAULT="1" TOOL="CC" NAME="-D" VALUE="STM32F401xx"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-x " VALUE="assembler-with-cpp"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-g" VALUE="dwarf-2"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mcpu=" VALUE="cortex-m4"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mfloat-abi=" VALUE="hard"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mfpu=" VALUE="fpv4-sp-d16"/>
+  <OPTION DEFAULT="1" TOOL="ASM" NAME="-mthumb"/>
+ </CONFIGURATION>
+</PROJECT>

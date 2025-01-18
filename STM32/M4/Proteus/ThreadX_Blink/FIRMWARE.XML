@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<FIRMWARE FAMILY="Cortex-M4" COMPILER="GCC for ARM" TYPE="STM32F401RE">
+ <PROJECTS>
+  <STRING>STM32F401RE_1</STRING>
+ </PROJECTS>
+</FIRMWARE>
