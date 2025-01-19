@@ -114,6 +114,13 @@ int main(void)
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
   delay(500000);           // Custom delay 
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+  // Initalize the switch and wait for user to press it to continue
+  debug_message("Press the user button to continue.\r\n");
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET) {
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+      delay(50000);  // Custom delay
+  }
+  debug_message("System is ready.\r\n");
   /* USER CODE END 2 */
 
   MX_ThreadX_Init();
@@ -262,6 +269,10 @@ if ((GPIOA->MODER & (3U << (5 * 2))) != (1U << (5 * 2))) {
 if ((GPIOA->MODER & (3U << (6 * 2))) != (1U << (6 * 2))) {
     GPIOA->MODER &= ~(3U << (6 * 2));
     GPIOA->MODER |= (1U << (6 * 2));
+}
+// Verify PA7
+if ((GPIOA->MODER & (3U << (7 * 2))) != (0U << (7 * 2))) {
+    GPIOA->MODER &= ~(3U << (7 * 2));
 }
 /* USER CODE END MX_GPIO_Init_2 */
 }

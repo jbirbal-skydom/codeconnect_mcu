@@ -65,6 +65,12 @@ extern TX_THREAD led_thread;
 extern UCHAR led_thread_stack[];
 extern void led_thread_entry(ULONG thread_input);
 
+// externs for the button thread
+extern TX_THREAD button_thread;
+extern UCHAR button_thread_stack[];
+extern void button_thread_entry(ULONG thread_input);
+
+
 #define LED_THREAD_STACK_SIZE 512  // Define the stack size for the LED thread
 
 UINT App_ThreadX_Init(VOID *memory_ptr);

@@ -68,6 +68,26 @@ void led_thread_entry(ULONG thread_input) {
     }
 }
 
+// A entry function for athread that will waits for a button press and then switch the pin6 LED on or off
+TX_THREAD button_thread;
+UCHAR button_thread_stack[LED_THREAD_STACK_SIZE];
+void button_thread_entry(ULONG thread_input) {
+    debug_message("Button Thread started.\r\n");
+    while(1) {
+        // Wait for the user button to be pressed
+        while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET) {
+            tx_thread_sleep(10);
+        }
+        // Toggle the LED
+        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+        debug_message("Button Pressed.\r\n");
+        // Wait for the button to be released
+        while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_RESET) {
+            tx_thread_sleep(10);
+        }
+    }
+}
+
 /* USER CODE END PFP */
 
 /**

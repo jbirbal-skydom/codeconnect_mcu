@@ -103,6 +103,19 @@ VOID tx_application_define(VOID *first_unused_memory)
                      1,
                      TX_NO_TIME_SLICE,
                      TX_AUTO_START);
+
+    // button thread
+    tx_thread_create(&button_thread,
+                     "Button Thread",
+                     button_thread_entry,
+                     0,
+                     button_thread_stack,
+                     LED_THREAD_STACK_SIZE,
+                     1,
+                     1,
+                     TX_NO_TIME_SLICE,
+                     TX_AUTO_START);
+
     /* USER CODE END  App_ThreadX_Init_Success */
 
   }
