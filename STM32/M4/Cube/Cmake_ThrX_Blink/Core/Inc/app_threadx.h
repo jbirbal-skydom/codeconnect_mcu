@@ -61,7 +61,13 @@ void MX_ThreadX_Init(void);
 /* USER CODE END PD */
 
 /* USER CODE BEGIN 1 */
+extern TX_THREAD led_thread;
+extern UCHAR led_thread_stack[];
+extern void led_thread_entry(ULONG thread_input);
 
+#define LED_THREAD_STACK_SIZE 512  // Define the stack size for the LED thread
+
+UINT App_ThreadX_Init(VOID *memory_ptr);
 /* USER CODE END 1 */
 
 #ifdef __cplusplus
