@@ -46,7 +46,8 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+/* main.h */
+void debug_message(const char *message);
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

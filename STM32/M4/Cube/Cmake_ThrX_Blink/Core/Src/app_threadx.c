@@ -27,7 +27,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+// Include the debug message function
+#include "main.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +59,7 @@ UCHAR led_thread_stack[LED_THREAD_STACK_SIZE];
 
 
 // Thread entry function
-void led_thread_entry(ULONG thread_input) {
+void led_thread_entry() {
 	debug_message("LED Thread started.\r\n");
     while(1) {
         HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
@@ -71,7 +72,7 @@ void led_thread_entry(ULONG thread_input) {
 // A entry function for athread that will waits for a button press and then switch the pin6 LED on or off
 TX_THREAD button_thread;
 UCHAR button_thread_stack[LED_THREAD_STACK_SIZE];
-void button_thread_entry(ULONG thread_input) {
+void button_thread_entry() {
     debug_message("Button Thread started.\r\n");
     while(1) {
         // Wait for the user button to be pressed
