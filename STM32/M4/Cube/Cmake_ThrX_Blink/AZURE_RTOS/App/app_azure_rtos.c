@@ -66,7 +66,7 @@ static TX_BYTE_POOL tx_app_byte_pool;
 VOID tx_application_define(VOID *first_unused_memory)
 {
   /* USER CODE BEGIN  tx_application_define */
-
+  (void)first_unused_memory;
   /* USER CODE END  tx_application_define */
 
   VOID *memory_ptr;
