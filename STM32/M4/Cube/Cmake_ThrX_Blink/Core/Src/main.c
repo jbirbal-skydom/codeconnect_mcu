@@ -44,6 +44,7 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+char msg[] = "Hello, UART!\r\n";
 
 /* USER CODE END PV */
 
@@ -57,7 +58,15 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void debug_message(const char *message)
+{
+    HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), HAL_MAX_DELAY);
+}
+void delay(volatile uint32_t delay_count) {
+    while (delay_count--) {
+        __asm("NOP");  // No operation, just waste cycles
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -89,9 +98,22 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);  // Force HIGH
 
+
+  MX_USART2_UART_Init();
+
+
+  /* USER CODE BEGIN 2 */
+  char message[] = "Hello, Virtual Terminal!\r\n";
+  HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), HAL_MAX_DELAY);
+  debug_message("System initialized.\r\n");
+  debug_message("UART test: System is initializing.\r\n");
+  debug_message("LED Test: System is initializing.\r\n");
+  delay(500000);           // Custom delay 
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+  delay(500000);           // Custom delay 
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
   /* USER CODE END 2 */
 
   MX_ThreadX_Init();
@@ -100,6 +122,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  debug_message("ThreadX kernel started.\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
@@ -178,7 +201,22 @@ static void MX_USART2_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART2_Init 2 */
+  // Verify GPIO configuration for PA2 (TX) and PA3 (RX)
+  // Check if pins are in alternate function mode (0b10)
+  if ((GPIOA->MODER & (3U << (2 * 2))) != (2U << (2 * 2)) ||
+      (GPIOA->MODER & (3U << (3 * 2))) != (2U << (3 * 2))) {
+      // Set PA2 and PA3 to alternate function mode
+      GPIOA->MODER &= ~((3U << (2 * 2)) | (3U << (3 * 2)));
+      GPIOA->MODER |= (2U << (2 * 2)) | (2U << (3 * 2));
+  }
 
+  // Verify alternate function configuration
+  if ((GPIOA->AFR[0] & (0xF << (2 * 4))) != (7U << (2 * 4)) ||
+      (GPIOA->AFR[0] & (0xF << (3 * 4))) != (7U << (3 * 4))) {
+      // Set alternate function 7 (USART2) for PA2 and PA3
+      GPIOA->AFR[0] &= ~((0xF << (2 * 4)) | (0xF << (3 * 4)));
+      GPIOA->AFR[0] |= (7U << (2 * 4)) | (7U << (3 * 4));
+  }
   /* USER CODE END USART2_Init 2 */
 
 }
@@ -214,6 +252,17 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+// Verify configuration
+// Verify PA5
+if ((GPIOA->MODER & (3U << (5 * 2))) != (1U << (5 * 2))) {
+    GPIOA->MODER &= ~(3U << (5 * 2));
+    GPIOA->MODER |= (1U << (5 * 2));
+}
+// Verify PA6
+if ((GPIOA->MODER & (3U << (6 * 2))) != (1U << (6 * 2))) {
+    GPIOA->MODER &= ~(3U << (6 * 2));
+    GPIOA->MODER |= (1U << (6 * 2));
+}
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
